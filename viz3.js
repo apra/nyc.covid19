@@ -139,8 +139,56 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
         let cur_color = color_population;
         let cur_property_selected = "total population";
         let cur_data = total_populations;
+        /***
+         * CREATE CORRELATION PLOT
+         */
+        let tooltip = d3.select("body")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("background-color", "rgba(70,70,70,0.7")
+            .style("padding", "10px")
+            .style("color", "white")
 
+        let show_tooltip_corr = function (d) {
+            d3.event.stopPropagation();
+            console.log("over")
+            let zcta_data = data_map.get(d.zcta);
+            tooltip
+                .transition()
+                .duration(100)
+            tooltip
+                .style("display", "block")
+                .style("opacity", 1)
+                .html("<p><span style = \"font-weight:bold\">" + titles_legend[cur_property_selected] + "</span>: " + zcta_data.get(cur_property_selected) + "</p><p><span style = \"font-weight:bold\">ZCTA</span>: " + d.zcta + "</p>")
+                .style("left", (d3.event.pageX + 5) + "px")
+                .style("top", (d3.event.pageY + 5) + "px")
+        }
+        let move_tooltip_corr = function (d) {
+            d3.event.stopPropagation();
+            tooltip
+                .style("left", (d3.event.pageX + 5) + "px")
+                .style("top", (d3.event.pageY + 5) + "px")
+        }
+        let hide_tooltip_corr = function (d) {
+            d3.event.stopPropagation();
+            tooltip
+                .transition()
+                .duration(50)
+                .style("opacity", 0)
+                .style("display", "none")
+        }
         let graphg = corr_g.append("g");
+        // add the title
+        let title_corrplot = graphg.append("text")
+            .text("Confirmed cases of COVID-19 vs "+titles_legend[cur_property_selected] )
+            .attr("x", (width_graph/2))
+            .attr("y", 20)
+            .attr("text-anchor","middle")
+            .style('font-size', '30px')
+            .style('font-family', '"EB Garamond", serif')
+            .style('font-weight', '400');
+
         graphg
             .selectAll("dot")
             .data(selected_zcta)
@@ -167,15 +215,21 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
                     return "rgba(0,0,0,0.1)"
                 }
             })
+            .on("mouseover", show_tooltip_corr)
+            .on("mousemove", move_tooltip_corr)
+            .on("mouseleave", hide_tooltip_corr);
 
         function update_corrplot() {
+            title_corrplot
+            .text("Confirmed cases of COVID-19 vs "+titles_legend[cur_property_selected] )
             x_axis
                 .domain([Math.min(...cur_data), Math.max(...cur_data)])
                 .range([0, width_graph]);
             x_axis_g.call(d3.axisBottom(x_axis));
             let circle = graphg.selectAll("circle").data(selected_zcta);
             circle
-                .transition(500)
+                .transition(1000)
+                .duration(800)
                 .attr("cx", function (d, i) {
                     console.log(d)
                     let zcta_data = data_map.get(d.zcta);
@@ -449,7 +503,7 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
             }
             d3.select("#tooltip").html(tooltipHtml(titles_legend[selectedOption], cur_value))
                 .transition().duration(100).style("opacity", .9)
-                .style("left", (d3.event.pageX+10) + "px")
+                .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 18) + "px");
         }
     });
