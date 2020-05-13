@@ -8,10 +8,13 @@
           rel="stylesheet" type="text/css"/>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600;700&family=EB+Garamond:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
 
         svg {
             background: rgb(250, 250, 250);
+        }
+        path.selected{
+            background-color: #a6cee3;
         }
 
         #tooltip {
@@ -51,18 +54,24 @@
             position: absolute;
             padding: 20px;
         }
+        svg#map-svg {
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            top: 0;
+        }
+        svg#corr-svg{
+            position: absolute;
+            top:900px
+        }
 
         select {
             position: absolute;
             left: 970px;
+            top:860px;
         }
 
-        svg#map-svg {
-                position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
-        }
+
     </style>
 </head>
 <body>
