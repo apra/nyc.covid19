@@ -9,7 +9,7 @@ function tooltipHtml(n, data) {	/* function to create html content string in too
         "</p>";
 }
 
-d3.json("merged_zcta.json").then(function (data) {
+d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.json").then(function (data) {
     let options = ["total population", "median household income","positive"];
     let titles_legend = {
         "total population": "Total population",
@@ -63,7 +63,7 @@ d3.json("merged_zcta.json").then(function (data) {
         .unknown("#ccc");
 
 
-    d3.json("nyu-2451-34509-geojson.json").then(function (nyc) {
+    d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/nyu-2451-34509-geojson.json").then(function (nyc) {
         const zoom = d3.zoom()
             .scaleExtent([1, 4])
             .on("zoom", zoomed);
