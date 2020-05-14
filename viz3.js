@@ -151,7 +151,7 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
 
 
 //    d3.json("MODZCTA_2010_WGS1984.geo.json").then(function (nyc) {
-    d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/nyu-2451-34509-geojson.json").then(function (nyc) {
+    d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/MODZCTA_2010_WGS1984.geo.json").then(function (nyc) {
         const zoom = d3.zoom()
             .scaleExtent([1, 4])
             .on("zoom", zoomed);
