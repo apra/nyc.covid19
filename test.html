@@ -27,11 +27,13 @@
             border: 1px;
             border-radius: 2px;
             pointer-events: none;
+            width:200px
         }
         .tooltip{
             position: absolute;
             font-family: "EB Garamond", serif;
             z-index: 10;
+            width: 100px;
         }
         .tooltip p{
             padding: 0;
@@ -48,7 +50,7 @@
             border: 1px solid #444;
             border-radius: 0px;
             font-size: 17px;
-            width: auto;
+             width:200px;
             padding: 4px;
             color: white;
             opacity: 0;
@@ -71,13 +73,19 @@
         }
         svg#corr-svg{
             position: absolute;
-            top:900px
+            top:800px
         }
 
         select {
             position: absolute;
-            left: 970px;
-            top:860px;
+            left: 880px;
+            top:760px;
+        }
+        select option[value="total population"], select option[value="female"], select option[value="median age in years"], select option[value="education Index"], select option[value="per-capita income"], select option[value="public transportation"]{
+            color:#20378E
+        }
+        select option[value="asian"],select option[value="white"],select option[value="hispanic or latino"],select option[value="african american"]{
+            color:#810000
         }
 
 
