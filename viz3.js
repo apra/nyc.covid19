@@ -6,10 +6,10 @@ var height_corrplot = 600;
 
 let selected_color = "url(#diagonalHatch)"
 
-function tooltipHtml(n, data) {	/* function to create html content string in tooltip div. */
+function tooltipHtml(n, data, covid) {	/* function to create html content string in tooltip div. */
     return "<h4>" + n + "</h4><p>" +
         "" + (data) + "" +
-        "</p>";
+        "</p><h4>Number of positives (every thousand) </h4><p>"+covid+"</p>";
 }
 
 //d3.json("merged_zcta.json").then(function (data) {
@@ -230,7 +230,9 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
             tooltip
                 .style("display", "block")
                 .style("opacity", 1)
-                .html("<p><span style = \"font-weight:bold\">" + titles_legend[cur_property_selected] + "</span>: " + zcta_data.get(cur_property_selected) + "</p><p><span style = \"font-weight:bold\">ZCTA</span>: " + d.zcta + "</p>")
+                .html("<p><span style = \"font-weight:bold\">" + titles_legend[cur_property_selected] + "</span>: "
+                    + zcta_data.get(cur_property_selected) + "</p><p><span style = \"font-weight:bold\">Number of positives (every thousand)</span> "+zcta_data.get("positive")+"</p><p><span style = \"font-weight:bold\">ZCTA</span>: "
+                    + d.zcta + "</p>")
                 .style("left", (d3.event.pageX + 5) + "px")
                 .style("top", (d3.event.pageY + 5) + "px")
         }
@@ -634,7 +636,7 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
             if (zcta_data !== undefined) {
                 cur_value = zcta_data.get(selectedOption)
             }
-            d3.select("#tooltip").html(tooltipHtml(titles_legend[selectedOption], cur_value))
+            d3.select("#tooltip").html(tooltipHtml(titles_legend[selectedOption], cur_value, zcta_data.get("positive")))
                 .transition().duration(100).style("opacity", .9)
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 18) + "px");
