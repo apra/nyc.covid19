@@ -1,0 +1,86 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>my plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.0.min.js" integrity="sha384-5Y+xuMRAbgBj/2WKUiL8yzV4fBFic1HJPo2hT3pq2IsEzbsJjj8kT2i0b1lZ7C2N" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.0.min.js" integrity="sha384-2ltAd1cQhavmLeBEZXGgnna8fjbw+FjvDq9m2dig4+8KVS8JcYFUQaALvLT//qHE" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="f1b1da5e-25a7-460d-b326-22611ac25b7c" data-root-id="1013"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1054">
+          {"45a5ace7-c647-42d3-855f-f89f99a677da":{"roots":{"references":[{"attributes":{"data":{"mx":{"__ndarray__":"hFAWEzyx4D93VOyzCs9CQNbTY9qeWNg/GUt+seQXBUA=","dtype":"float64","shape":[4]},"sdx":{"__ndarray__":"/aEz8oVtmj8UYHGGsoASQJRU2CJ1AtA/ra4I9JZO4D8=","dtype":"float64","shape":[4]},"x":{"__ndarray__":"KGnTY2VZMb9aUAT6FHZgPyTNrSI3q3W/flEKHmZaTz8=","dtype":"float64","shape":[4]},"y":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","shape":[4]}},"selected":{"id":"1015"},"selection_policy":{"id":"1014"}},"id":"1001","type":"ColumnDataSource"},{"attributes":{"children":[{"id":"1011"},{"id":"1012"}]},"id":"1013","type":"Row"},{"attributes":{"children":[{"id":"1002"},{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"}]},"id":"1011","type":"Column"},{"attributes":{"end":3.97,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1007"}]},"start":1.57,"step":0.1,"title":"Average household size","value":1.57},"id":"1005","type":"Slider"},{"attributes":{},"id":"1014","type":"UnionRenderers"},{"attributes":{"children":[{"id":"1008"},{"id":"1009"}]},"id":"1012","type":"Column"},{"attributes":{"icon":null,"js_event_callbacks":{"button_click":[{"id":"1010"}]},"label":"Predict Positives"},"id":"1008","type":"Button"},{"attributes":{"end":0.5918151615826034,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1007"}]},"start":0.4069016423694409,"step":0.01,"title":"Percentage of females","value":0.4069016423694409},"id":"1002","type":"Slider"},{"attributes":{"args":{"attrs":{"id":"1001"},"div":{"id":"1009"}},"code":"\n       var args = [];\n       console.log(attrs)\n       for (var i = 0; i&lt;attrs.length; i++) {\n           args.push(attrs[i] + '=' + Number(cb_obj[attrs[i]]).toFixed(2));\n       }\n       var line = \"&lt;span&gt;&lt;b&gt;Output: \" + String(attrs.data[\"y\"][0]) + \"&lt;/b&gt;&lt;/span&gt;\";\n       var text = div.text.concat(line);\n       div.text = line\n   "},"id":"1010","type":"CustomJS"},{"attributes":{"end":49.4,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1007"}]},"start":27.8,"step":0.1,"title":"Median age in years","value":27.8},"id":"1003","type":"Slider"},{"attributes":{},"id":"1015","type":"Selection"},{"attributes":{"end":1.0,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1007"}]},"start":0.0,"step":0.01,"title":"Education index","value":0.0},"id":"1004","type":"Slider"},{"attributes":{"height":10,"height_policy":"fixed","width":100},"id":"1009","type":"Div"},{"attributes":{"end":100000,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1007"}]},"start":1000,"step":0.1,"title":"Population","value":5000},"id":"1006","type":"Slider"},{"attributes":{"args":{"age":{"id":"1003"},"education":{"id":"1004"},"female":{"id":"1002"},"household":{"id":"1005"},"mu":0.020069789410733337,"pop":{"id":"1006"},"source":{"id":"1001"}},"code":"\n    let data = source.data;\n    let mx = data['mx']\n    let sdx = data['sdx']\n    let female_val = (female.value+mx[0])/sdx[0];\n    let age_val = (age.value+mx[1])/sdx[1];\n    let education_val = (education.value+mx[2])/sdx[2];\n    let household_val = (household.value+mx[3])/sdx[3];\n    let pop_val = pop.value\n    let x = data['x']\n    let y = data['y']\n    \n    y[0] =  Math.round((x[0]*female_val + x[1]*age_val+x[2]*education_val+x[3]*household_val+mu)*pop_val);\n    source.data[\"y\"] = y\n    console.log(source.data[\"y\"])\n    source.change.emit();\n"},"id":"1007","type":"CustomJS"}],"root_ids":["1013"]},"title":"Bokeh Application","version":"2.0.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1054').textContent;
+                  var render_items = [{"docid":"45a5ace7-c647-42d3-855f-f89f99a677da","root_ids":["1013"],"roots":{"1013":"f1b1da5e-25a7-460d-b326-22611ac25b7c"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
