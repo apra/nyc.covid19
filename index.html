@@ -268,12 +268,21 @@
             number of people living in the same area.
         </p>
         <p class="text">
-            We then want to focus on the <b>education index</b>, where we can more clearly see a correlation. Higher education
+            We then want to focus on the <b>education index</b>, where we can more clearly see a correlation. Higher
+            education
             often leads to lower spread of Coronavirus. Here, it is important to refrain from speculations. Correlation
             does not imply causation. We can only point out that this is what we see from the data we gathered, and make
             some informed decisions as to why this might have happened. Higher education folks might be more aware to
             the current events or it may simply be that higher education folks have higher income, providing them with
-            increased chance of being able to stay home when the pandemic hits. We explore the correlation between these two factors a bit more further down.
+            increased chance of being able to stay home when the pandemic hits. We explore the correlation between these
+            two factors a bit more further down.
+        </p>
+        <p class="text">
+            The exploration now starts. Looking at income we see a similar correlation to what we saw using the
+            education index. If instead we look at specific ethnicities we don't see such strong correlations anymore.
+            This is clear. Just stopping at the ethnicity level does not tell us enough about what is really happening.
+            Factors such as income and education seem to play a much more important role. Can we say more about this? We
+            try to do so by using a machine learning model, trained on these exact statistics.
         </p>
 
 
@@ -288,10 +297,36 @@
                 <hr class="divider my-4"/>
 
             </div>
-            <iframe style="width: 630px;" class="vizs" src="viz4"></iframe>
-        </div>
-        <div class="row">
+            <p class="text">
+                To round off the interactive data visualization journey, a simple model has been implemented. Below we
+                see <b>correlation plots</b> of different socio-economic variables and attributes. The variables chosen
+                are,
+                "Female", "Per-capita Income", "Education Index", "Average household size" and finally, "Median Age". It
+                is of interest to see how the variation of these variables changes the prediction of positive cases.
+                <br>
 
+                First the correlation of variables is investigated.
+            </p>
+            <img src="pairplot.png"/>
+            <p class="text">
+                Above we see that there is a strong correlation between "<i>Per-capita Income</i>", "<i>Average Household Size</i>"
+                and "<i>Education Index</i>". There is also correlation between number of positive cases and the before mentioned
+                variables. These variables are used to setup the model. The model implemented is based on simple linear
+                regression. The coefficients of the model allow us to variate the variables and see how they affect the
+                response variable, which is simply the number of positive cases. It is not of interest to have an
+                accurate prediction, but more so of being able to do inference.
+            </p>p>
+            <iframe style="width: 630px;" class="vizs" src="viz4"></iframe>
+            <p class="text">
+                When moving the slides and pressing the "<i>Predict Positives</i>" button a prediction will be made. It shows
+                the predicted number of positive cases based on the input from the slides. It can now be seen that the
+                prediction decreases when moving the "<i>Education index</i>" or "<i>Precentage of females</i>" up. While it decreases
+                when sliding "<i>Median Age</i>" or "<i>Average household size</i>" up. This corresponds with the findings earlier.
+                The reason "<i>Income</i>" is not shown in the sliders, is that "Education index" is so highly correlated with
+                it, that it fully explains the information of "Income", so likewise an increase in "Income" would
+                decrease the prediction output. So to have a higher chance of contracting COVID-19, be a male with low
+                income, low education, a high household size and preferably also old.
+            </p>
         </div>
     </div>
 </section>
@@ -304,14 +339,13 @@
                 <hr class="divider my-4"/>
 
             </div>
-            <p><a href="">The Notebook</a> </p>
+
 
         </div>
-        <div class="row">
-            <div class="col-lg-4 mr-auto text-center">
-                <p>Trying text</p>
-            </div>
-        </div>
+        <p class="text"><a href="https://nbviewer.jupyter.org/github/apra/nyc.covid19/blob/master/main.ipynb">The
+            Notebook</a></p>
+        <p class="text"><a href="https://github.com/apra/nyc.covid19/datasets">The cleaned datasets</a></p>
+
     </div>
 </section>
 <!-- Footer-->
