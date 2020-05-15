@@ -81,6 +81,74 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
+                <h2 class="text-center mt-0"></h2>
+            </div>
+
+        </div>
+        <p class="text"><b>"Correlation does not imply causation"</b></p>
+        <p class="text">
+            If you do not live in a cave in the Scottish highlands or a turf hut in Iceland. The coronavirus pandemic
+            has
+            not surpassed affecting your daily life. It has been the main source for headlines throughout the global
+            media.
+            In late March/early April of 2020 the eyes of global media were fixed on the United States as the
+            coronavirus
+            pandemic was spreading faster than anyone would have anticipated. National, as well as the local government,
+            have been highly criticized for not taking quick enough action against the spread of COVID-19 earlier (<a
+                href="https://edition.cnn.com/2020/05/09/politics/obama-trump-coronavirus-response-flynn-case/index.html">Obama
+            says White House response to coronavirus has been 'absolute chaotic disaster</a>,
+            <a href="https://www.theguardian.com/us-news/2020/apr/12/us-global-reputation-rock-bottom-donald-trump-coronavirus">US's
+                global reputation hits rock-bottom over Trump's coronavirus response</a>]).
+        </p>
+
+        <p class="text">
+            The epicenter of the pandemic in The USA is in New York City. The 15th of March 2020 10 people had already
+            died
+            in NYC, fast forward to the 15th of May and the death toll had soared to around 87000 deaths.
+        </p>
+
+        <p class="text">
+            In the midst of the early crisis, news headlines and reports stated that people of *African-American* and
+            *Hispanic* ethnicities were being hit harder by the crisis than any other races.
+        </p>
+        <ul class="mylist">
+
+
+            <li>
+                <a href="https://www.npr.org/2020/04/08/829726964/new-york-citys-latinx-residents-hit-hardest-by-coronavirus-deaths">New
+                    York City's Latin Residents Hit Hardest By Coronavirus Deaths</a></li>
+            <li><a href="https://www.nytimes.com/2020/04/08/nyregion/coronavirus-race-deaths.html">Virus Is Twice as
+                Deadly for Black and Latino People Than Whites in N.Y.C.</a></li>
+        </ul>
+        <p class="text">
+            While other sources sought to link the spread to each individuals socioeconomic status.
+        </p>
+        <ul class="mylist">
+            <li><a href="https://theintercept.com/2020/04/09/nyc-coronavirus-deaths-race-economic-divide/">Coronavirus
+                Numbers Reflect New York City’s Deep Economic
+                Divide</a></li>
+            <li>
+                <a href="https://abcnews.go.com/Health/nyc-stark-contrast-covid-19-infection-rates-based/story?id=69920706">IN
+                    NYC, 'stark contrast' in COVID-19 infection rates based on education and
+                    race</a></li>
+        </ul>
+
+        <p class="text">
+            The widespread sensationalist headlines and lack of clarity might sway the understanding that the public has
+            of
+            why some ethnicities are hit harder than others. The goal of this interactive data visualization is to shed
+            light on different factors that might be linked to the spread of COVID-19, in an easily digestible way.
+        </p>
+
+        <p class="text">
+            It is shown that ethnicities are strongly linked with socio-economic status, thus separating the effects is
+            not
+            possible. However, better understanding each of the individual factor's correlation to the spread of the
+            virus
+            will make matters less sensationalist and more grounded in sound reasoning.
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
                 <h2 class="text-center mt-0">Timeline Overview</h2>
             </div>
 
@@ -309,23 +377,31 @@
             </p>
             <img src="pairplot.png"/>
             <p class="text">
-                Above we see that there is a strong correlation between "<i>Per-capita Income</i>", "<i>Average Household Size</i>"
-                and "<i>Education Index</i>". There is also correlation between number of positive cases and the before mentioned
+                Above we see that there is a strong correlation between "<i>Per-capita Income</i>", "<i>Average
+                Household Size</i>"
+                and "<i>Education Index</i>". There is also correlation between number of positive cases and the before
+                mentioned
                 variables. These variables are used to setup the model. The model implemented is based on simple linear
                 regression. The coefficients of the model allow us to variate the variables and see how they affect the
                 response variable, which is simply the number of positive cases. It is not of interest to have an
                 accurate prediction, but more so of being able to do inference.
             </p>
             <div style="width: 100%;position: relative">
-            <iframe style="width: 630px;height: 280px" class="vizs" src="viz4"></iframe>
+                <iframe style="width: 630px;height: 280px" class="vizs" src="viz4"></iframe>
             </div>
             <div style="clear: both;float: none;"></div>
             <p class="text">
-                When <b>moving</b> the sliders and pressing the "<b>Predict Positives</b>" button a prediction will be made. It shows
-                the <b>predicted number of positive cases</b> based on the input from the slides. It can now be seen that the
-                prediction <b>decreases</b> when moving the "<i>Education index</i>" or "<i>Precentage of females</i>" up. While it <b>increases</b>
-                when sliding "<i>Median Age</i>" or "<i>Average household size</i>" up. This corresponds with the findings earlier, higher education leads to less cases, while bigger average house size leads to more cases.
-                The reason "<i>Income</i>" is not shown in the sliders, is that "Education index" is so highly correlated with
+                When <b>moving</b> the sliders and pressing the "<b>Predict Positives</b>" button a prediction will be
+                made. It shows
+                the <b>predicted number of positive cases</b> based on the input from the slides. It can now be seen
+                that the
+                prediction <b>decreases</b> when moving the "<i>Education index</i>" or "<i>Precentage of females</i>"
+                up. While it <b>increases</b>
+                when sliding "<i>Median Age</i>" or "<i>Average household size</i>" up. This corresponds with the
+                findings earlier, higher education leads to less cases, while bigger average house size leads to more
+                cases.
+                The reason "<i>Income</i>" is not shown in the sliders, is that "Education index" is so highly
+                correlated with
                 it, that it fully explains the information of "Income", so likewise an increase in "Income" would
                 decrease the prediction output. So to have a higher chance of contracting COVID-19, be a male with low
                 income, low education, a high household size and preferably also old.
@@ -345,17 +421,25 @@
 
 
         </div>
-        <p class="ẗext">We showed that, clearly, the ethnicities are not the whole picture, there is much more going on, between ethnicities more than within ethnicities. The full understanding cannot come from just this analysis. The point is trying to make anyone reading this aware that the factors that played into the spread of Coronavirus were much more complicated and inter-related than a brief statistical overview of which ethnicities were most hit. Careful consideration of the data showed this.</p>
-        <p class="text"><a target="_blank" href="https://nbviewer.jupyter.org/github/apra/nyc.covid19/blob/master/main.ipynb">The
+        <p class="ẗext">We showed that, clearly, the ethnicities are not the whole picture, there is much more going on,
+            between ethnicities more than within ethnicities. The full understanding cannot come from just this
+            analysis. The point is trying to make anyone reading this aware that the factors that played into the spread
+            of Coronavirus were much more complicated and inter-related than a brief statistical overview of which
+            ethnicities were most hit. Careful consideration of the data showed this.</p>
+        <p class="text"><a target="_blank"
+                           href="https://nbviewer.jupyter.org/github/apra/nyc.covid19/blob/master/main.ipynb">The
             Notebook</a></p>
-        <p class="text"><a target="_blank" href="https://github.com/apra/nyc.covid19/tree/master/datasets">The cleaned datasets</a></p>
+        <p class="text"><a target="_blank" href="https://github.com/apra/nyc.covid19/tree/master/datasets">The cleaned
+            datasets</a></p>
 
     </div>
 </section>
 <!-- Footer-->
 <footer class="bg-light py-5">
     <div class="container">
-        <div class="small text-center text-muted">Copyright © 2020 - Project Visualization. By Steinn Orri Erlendsson, Christian Dandanell Glissov and Samuele Papa </div>
+        <div class="small text-center text-muted">Copyright © 2020 - Project Visualization. By Steinn Orri Erlendsson,
+            Christian Dandanell Glissov and Samuele Papa
+        </div>
     </div>
 </footer>
 <!-- Bootstrap core JS-->
