@@ -14,7 +14,7 @@ function tooltipHtml(n, data, covid) {	/* function to create html content string
 
 //d3.json("merged_zcta.json").then(function (data) {
 d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.json").then(function (data) {
-    let options = ["total population", "female","median age in years",  "education Index", "per-capita income", "public transportation","white", "african american", "hispanic or latino", "asian", "positive"];
+    let options = ["total population", "female","median age in years",  "education Index", "per-capita income", "public transportation", "average household size","white", "african american", "hispanic or latino", "asian", "positive"];
     let titles_legend = {
         "total population": "Total population",
         "per-capita income": "Per-capita income (dollars)",
@@ -26,7 +26,8 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
         "asian": "Asian people (every thousand)",
         "median age in years": "Median age (years)",
         "education Index": "Education index",
-        "female": "Ratio of female inhabitants"
+        "female": "Ratio of female inhabitants",
+        "average household size": "Average household size"
     };
     // to store all the necessary data for easy visualization
     let total_populations = [];
@@ -41,6 +42,7 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
     let total_median_age = [];
     let total_ed_index = [];
     let total_female_ratio = [];
+    let total_avg_house = [];
 
     let selected_zcta = [];
 
@@ -88,6 +90,8 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
                     total_ed_index.push(cur_value)
                 }else if(cur_item === "female"){
                     total_female_ratio.push(cur_value)
+                }else if(cur_item === "average household size"){
+                    total_avg_house.push(cur_value)
                 }
             })
         } else {
@@ -146,6 +150,10 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
         .unknown("#ccc");
     let color_female_ratio = d3.scaleSequential()
         .domain(d3.extent(total_female_ratio))
+        .interpolator(d3.interpolateYlGn)
+        .unknown("#ccc");
+    let color_favg_house = d3.scaleSequential()
+        .domain(d3.extent(total_avg_house))
         .interpolator(d3.interpolateYlGn)
         .unknown("#ccc");
 
@@ -398,6 +406,11 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
                 cur_data = total_female_ratio;
                 x = x_female_ratio
             }
+            else if (sel_option === "average household size"){
+                cur_color = color_favg_house;
+                cur_data = total_avg_house;
+                x = x_avg_house
+            }
             console.log("Selected option: " + sel_option);
             update_corrplot();
 
@@ -486,6 +499,7 @@ d3.json("https://raw.githubusercontent.com/apra/nyc.covid19/master/merged_zcta.j
         let x_median_age = d3.quantize(d3.interpolate(Math.min(...total_median_age), Math.max(...total_median_age)), elements_legends);
         let x_ed_index = d3.quantize(d3.interpolate(Math.min(...total_ed_index), Math.max(...total_ed_index)), elements_legends);
         let x_female_ratio = d3.quantize(d3.interpolate(Math.min(...total_female_ratio), Math.max(...total_female_ratio)), elements_legends);
+        let x_avg_house = d3.quantize(d3.interpolate(Math.min(...total_avg_house), Math.max(...total_avg_house)), elements_legends);
         let x = x_pop;
 
         linearGradient

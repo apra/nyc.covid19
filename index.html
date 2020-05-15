@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -30,6 +30,14 @@
 
         .map3 {
             height: 1430px
+        }
+
+        p.text,li {
+            font-family: "Merriweather Sans", sans-serif;
+            width: 700px;
+            margin: 0 auto;
+            text-align: justify;
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -74,12 +82,49 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
                 <h2 class="text-center mt-0">Timeline Overview</h2>
-
             </div>
 
         </div>
+        <p class="text">
+            The <b>first case of COVID-19</b> was confirmed in New York City (NYC) the 1st of March, the testing begins.
+            The USA and NYC have officially entered the beginning of one of the worst crises since the great depression
+            in 1929. <br>
+            A week later Andrew Cuomo, the governor of NYC, declares a <b>state of emergency</b>. Shortly after a number
+            of commuter guidelines, containment zones and lockdowns are issued.
+            <br>
+            The interactive data <b>visualization journey</b> starts by showing the governmental timeline of NYC and the
+            changes in number of new COVID-19 cases each day.
+        </p>
+        <p class="text"> In the first visualization a number of vertical lines can be observed, each of them indicate an
+            <i>important
+                event</i> in the timeline of NYC and its fight against COVID-19. By hovering over the vertical lines it
+            is
+            possible to read about the major events that have unfolded to get a basic overview.
+        </p>
+        <p class="text"> It is also possible to see the <b>trend</b> of COVID-19 by the plot lines. One can <b>select
+            different
+            boroughs</b> in NYC in the legend to show the
+            number of new positive cases and also the total amount of new performed tests in NYC. To the right in the
+            corner a number of tools can be observed,
+            these can be used to zoom or enable you to hover the different plot lines to show values of the point you
+            hover over. Feel free to play around.
+        </p>
         <iframe class="vizs" src="viz1"></iframe>
-        <h3 class="text-center mt-0">The Events as they unfolded</h3>
+        <h3 class="text-center mt-0">The Observations</h3>
+        <p class="text">
+            The <i>observant reader</i> can see there are differences in the number of positive cases for <b>each
+            borough</b>.
+            The <b>Bronx</b> seems have the <b>highest</b> number of positive cases, while <b>Manhattan</b> is far <b>lower</b>
+            than the other boroughs. <br>
+            One important thing to point out is the April 15th, a spike is clearly visible, likely linked to a change in
+            how
+            the number of deaths is reported (more on this event here:
+            <a target="_blank" href="https://www.nytimes.com/2020/04/14/nyregion/new-york-coronavirus-deaths.html">N.Y.C.
+                Death Toll Soars Past 10,000 in Revised Virus Count</a>) <br>
+            Correlation can also be observed between the boroughs, as the trend and peaks follow each other. Potential
+            factors that could explain the differences is the aim of the analysis.
+        </p>
+
     </div>
 </section>
 <!-- Services section-->
@@ -89,13 +134,58 @@
             <div class="col-lg-8 text-center">
                 <h2 class="text-center mt-0">Demographics</h2>
                 <hr class="divider my-4"/>
+                <p class="text">
+                    Many have attempted to pinpoint a scapegoat for the infection rate of the virus.
+                    In the beginning it was said that only the <i>elderly</i> would get seriously ill.
+                    Later on it became apparent that <i>people of all ages</i> were in danger of losing their health and
+                    even their lives to the pandemic.<br>
+                <p class="text"> So what is it?
+                </p>
+                <p class="text"> Is it the age, the ethnicity or are the poor the ones really in danger?</p>
+                <p class="text">
+                    From plot below, the <b>proportions of ethnic groups per borough</b> is displayed . The <b>Bronx</b>
+                    has
+                    substantially large number of people belonging to the <b>hispanic, latino and african american</b>
+                    communities.
+                    <b>Statten Islands'</b> population is, instead, <b>more than 50% white</b>.
+
+                </p>
                 <div>
                     <img src="assets/img/viz2_a.png" style="
                         margin-left: 90px;
                         margin-bottom: 50px;
                     ">
-                    <img src="assets/img/viz2_b.png" />
+                    <img src="assets/img/viz2_b.png"/>
                 </div>
+                <p class="text">
+                    To explore the 4 plots right above, we first need to understand the concept of the <b>boxplot</b>:
+                    <i>“A boxplot is a standardized way of displaying the distribution of data based on a five number
+                        summary (“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). It can
+                        tell
+                        you about your outliers and what their values are. It can also tell you if your data is
+                        symmetrical,
+                        how tightly your data is grouped, and if and how your data is skewed.”</i> <a
+                        href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51" target="_blank">More
+                    information for the curious user.</a>
+                </p>
+                <p class="text"> We can now quickly appreciate the <b>distribution</b> of income, medical spending
+                    and median age of each ethnic group in the city as well as showing the poverty rate per ethnic group
+                    in each borough.<br>
+                    It appears that the <b>white</b> population is the <i>richest</i> and the <i>oldest</i>.<br>
+                    The <b>hispanics</b> have the <i>lowest income</i>, <i>spend the least on medical care</i> and are
+                    also the <i>youngest</i>.
+                    If you live in the <b>Bronx or Brooklyn</b> you are more likely to be <i>poor</i> than if you live
+                    in the other
+                    boroughs of NYC.
+                </p>
+                <p class="text">
+                    What does this indicate for the spread of the Coronavirus in New York City? Does it give us a clear
+                    indication of which are the underlying factors that lead to some socioeconomic groups being hit
+                    hardest by the Coronavirus?
+                    It is safe to say that there is room for further exploration of demographic and the link to
+                    COVID-19.
+
+                </p>
             </div>
 
         </div>
@@ -109,9 +199,58 @@
             <div class="col-lg-8 text-center">
                 <h2 class="text-center mt-0">Map Overview</h2>
                 <hr class="divider my-4"/>
+                <p class="text">
+                    What follows are two elements that are to be used in unison both can also be used separately. <br>
+                    The map displays the <b>geographical distribution of the statistical indicators</b> that are
+                    available for
+                    selection from the <b>menu</b> to its <b>bottom right</b>. The subdivision shown is the <b>ZIP Code
+                    Tabulation Areas</b>
+                    (<b>ZCTAs</b>), which are a standard subdivision of the territory in the USA, which is also used by
+                    the
+                    Census Bureau (<a
+                        href="https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html"
+                        target="_blank">more information for the curious</a>).<br>
+                    Below the map is a <b>scatter plot</b>. It shows the total number of COVID-19 in the
+                    various areas against the statistic that is chosen from the menu to the top right of this plot. It
+                    is the same selection menu, which control both plots. The <b>size of the balls</b> is linearly
+                    dependent to
+                    the <b>population</b> of that area. Bigger size of the balls equals bigger population living in that
+                    area.<br>
+                    The two plots interact because you can <b>click</b> on the <b>areas</b> in the map and have the
+                    respective ball
+                    <b>highlighted</b> in the correlation plot. If a certain color stands out or you are interested in
+                    the
+                    numbers for a specific area, just click on the area, or select more then one by clicking on more.
+                    You can always reset the selection by clicking outsize any area or by selection another statistic.
+
+                </p>
             </div>
         </div>
         <iframe class="vizs map3" src="test"></iframe>
+        <p class="text">
+            Follows a brief description of the statistics available:
+        </p>
+
+        <ul>
+            <li><b>Commuters using public transportation</b>. This is the number of workers who use public transportation to get to
+            work. This gives us insight into the utilization of public transportation. It is a factor that is tied to
+            the location, as this will be higher for places where use of public transportation is a must, such as the
+                heart of Manhattan.</li>
+            <li><b>Per-capita income</b>. This is the income per-capita in each ZCTA. Important to understand how rich an area is
+            on average.</li>
+            <li><b>Education Index</b>. Measures the
+            average education level of an area, higher means on average more people have a higher education.</li>
+            <li><b>Median Age (years)</b>. The median age, in years, of the ZCTA.</li>
+            <li><b>Ratio of female inhabitants</b>. The proportion of female inhabitants living in that area. We only show female
+            ratio because the male ratio is complementary.</li>
+            <li><b>Total population</b>. Total number of people that live in the ZCTA.</li>
+            <li><b>White people (every thousand), African American people (every thousand), Hispanic or Latino (every
+            thousand), Asian people (every thousand)</b>. Number of people with that ethnicity every thousand living in that
+            area.</li>
+            <li><b>Number of positives</b>. Number of positive cases to COVID-19.</li>
+        </ul>
+
+
     </div>
 </section>
 <!-- Contact section-->
